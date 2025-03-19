@@ -1,0 +1,520 @@
+
+    body {
+      font-size: 12px;
+      background: #e8e5df;
+      /* Replace with your image URL */
+      background-size: cover;
+      /* Cover the entire screen */
+      background-position: center;
+      /* Center the image */
+      background-repeat: no-repeat;
+      /* Do not repeat the image */
+    }
+
+    .video-player {
+      height: 70vh;
+      /* Set video player height to 60% of viewport height */
+    }
+
+    .schedule-container {
+      background: white;
+      /* border-radius: 5px; */
+      /* border: 1px solid #ccc; */
+      height: 80vh;
+      /* Set schedule container height to 60% of viewport height */
+      overflow-y: auto;
+      overflow-x: hidden;
+      /* Enable scrolling if content exceeds height */
+      padding-top: 5px;
+    }
+
+    .schedule-cards {
+      display: flex;
+      gap: 10px 0;
+      /* Adds space between name cards */
+      flex-wrap: wrap;
+      /* Ensure cards wrap to next row if too wide */
+    }
+
+    .schedule-row {
+      /* Space between schedule rows */
+      display: grid;
+      grid-template-columns: 25rem auto;
+    }
+
+    .time-slot {
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .name-card {
+      border: 1px solid #0d6efd40;
+      padding: 5px 10px;
+      text-align: left !important;
+      position: relative;
+      /* min-width: 80px;
+      max-width: 80px; */
+      width: 80px;
+      margin: 10px 10px;
+    }
+
+    .name {
+      /* Bold font for names */
+      font-weight: bold;
+      /* Font size for names */
+      font-size: 12px;
+      /* hide extra content and end with 3 dots */
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .time {
+      font-size: 12px;
+      /* Font size for times */
+      margin-top: 5px;
+      /* Space between name and time */
+    }
+
+    /* Style for check mark */
+    .check-mark {
+      font-size: 13px;
+      /* Size of check mark */
+      top: -23px;
+      /* Adjusted for better positioning */
+      left: 0px;
+      /* Adjusted for better positioning */
+      color: #18dd42;
+      /* Color for check mark */
+    }
+
+    .ongoing {
+      background-color: #25BB4F;
+      color: white;
+      border: 1px solid #25BB4F;
+    }
+
+    .next {
+      background-color: #0166FF;
+      color: white;
+      border: 1px solid #0166FF;
+    }
+
+    .ongoing span {
+      color: #25BB4F;
+    }
+
+    .next span {
+      color: #0166FF;
+    }
+
+    /* General Scrollbar - Vertical and Horizontal */
+    ::-webkit-scrollbar {
+      width: 5px;
+      /* Vertical scrollbar width */
+      height: 5px;
+      /* Horizontal scrollbar height */
+    }
+
+    /* Vertical Scrollbar Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px black;
+      border-radius: 10px;
+    }
+
+    /* Vertical Scrollbar Handle */
+    ::-webkit-scrollbar-thumb {
+      background: black;
+      border-radius: 10px;
+    }
+
+    /* Vertical Scrollbar Handle on Hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: black;
+    }
+
+    /* Horizontal Scrollbar */
+    ::-webkit-scrollbar-horizontal {
+      height: 5px;
+      /* Horizontal scrollbar height */
+    }
+
+    /* Horizontal Scrollbar Track */
+    ::-webkit-scrollbar-track:horizontal {
+      box-shadow: inset 0 0 5px black;
+      border-radius: 10px;
+    }
+
+    /* Horizontal Scrollbar Handle */
+    ::-webkit-scrollbar-thumb:horizontal {
+      background: black;
+      border-radius: 10px;
+    }
+
+    /* Horizontal Scrollbar Handle on Hover */
+    ::-webkit-scrollbar-thumb:horizontal:hover {
+      background: black;
+    }
+
+    #dropdownMenuButton {
+      background: black;
+      border: 1px solid black;
+      padding: 10px 50px;
+      border-radius: 0px;
+      color: white;
+
+    }
+
+    /* Styling the dropdown menu */
+    .dropdown-menu {
+      margin-top: 0;
+      /* Remove top margin */
+      background-color: black;
+      /* Set background color of the dropdown menu */
+      width: 100%;
+      /* Make the dropdown menu width equal to the button */
+      border-radius: 0px;
+      /* Remove border-radius */
+      transform: translate(0px 35px) !important;
+    }
+
+    /* Styling the dropdown menu items */
+    .dropdown-item {
+      color: white;
+      /* Set text color to white */
+    }
+
+    /* Styling dropdown items on hover */
+    .dropdown-item:hover {
+      background-color: #333;
+      /* Slightly lighter black on hover */
+      color: white;
+      /* Keep text color white on hover */
+    }
+
+    .form-control {
+      font-size: 12px;
+      /* Change to your desired font size */
+    }
+
+    .form-select {
+      font-size: 12px;
+      /* Change to your desired font size */
+    }
+  
+    .photo-input {
+      padding: 20px 12px 0 12px;
+    }
+
+    .photo-input button {
+      border-radius: 10px;
+    }
+
+    .photo-input .bi-folder-fill {
+      font-size: 25px;
+      padding: 10px;
+    }
+
+    #loadFile {
+      display: none;
+    }
+
+    #fileDetails {
+      padding: 10px;
+      background-color: #f3f3f3;
+      border-radius: 7px;
+      height: 50px;
+      width: 95%;
+      border: none;
+    }
+
+    .camera-list {
+      width: 100%;
+      border-collapse: separate;
+      /* This enables spacing between rows */
+      border-spacing: 0 15px;
+      /* Adds vertical space (15px) between rows */
+      font-size: 14px;
+    }
+
+    .camera-list td,
+    .camera-list th {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .active-button,
+    .inactive-button {
+      width: 18px;
+      /* Width and height should be equal to make a perfect circle */
+      height: 18px;
+      border-radius: 50%;
+      /* Choose your preferred background color */
+      border: none;
+      /* No border */
+      cursor: pointer;
+      /* Pointer cursor on hover */
+      display: inline-block;
+    }
+
+    .active-button {
+      background-color: lightgreen;
+    }
+
+    .inactive-button {
+      background-color: lightcoral;
+    }
+
+    .modal-header,
+    .modal-footer {
+      border: none;
+    }
+
+    .slot-header {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 20px;
+      /* border-radius: 4px 4px 0px 0px; */
+    }
+
+    .slot-container {
+      border: none !important;
+      border-radius: 0;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      /* height: 100%; */
+    }
+
+    .camera-list {
+      list-style-type: none;
+      margin-bottom: 0;
+      padding: 14px 0 14px 5px;
+    }
+
+    .camera-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .camera-list li .delete-button {
+      background-color: transparent;
+      border: none;
+      color: red;
+      font-size: 18px;
+    }
+
+    .info-button {
+      background-color: transparent;
+      border: none;
+      color: blue;
+      font-size: 18px;
+    }
+
+    .arrow-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .arrow-button {
+      background-color: white;
+      border: none;
+      font-size: 24px;
+    }
+
+    .add-slot-close-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      /* Aligns the buttons to the right */
+      align-items: center;
+      width: 100%;
+      /* Take up full width */
+    }
+
+    .add-slot {
+      margin-right: 10px;
+    }
+
+    .add-slot-input-wrapper {
+      display: none;
+      /* Initially hidden */
+    }
+
+    .add-slot-input-wrapper input {
+      margin-right: 10px;
+    }
+
+    .last-row {
+      display: block;
+      color: white;
+      font-size: 18px;
+      background: black;
+      padding: 0 15px 15px 15px;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .last-container {
+      padding: 5px 30px;
+    }
+
+    /* .second-container {
+      padding: 10px 45px 0 45px;
+    } */
+
+    .first-container {
+      padding: 10px 10px;
+    }
+
+    .full-width {
+      width: 100%;
+      /* Ensure full width */
+      padding: 0;
+      /* Remove any padding that might affect the layout */
+      margin: 0;
+      /* Remove any margin if applied */
+    }
+
+    .inner-header {
+      background-color: #000;
+    }
+
+    .inner-header-time {
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      width: 130px;
+    }
+
+    .input-group .btn {
+      height: 100%;
+      z-index: 1;
+    }
+
+    .quantity-input {
+      text-align: center;
+      padding-right: 0px;
+    }
+
+    .quantity {
+      font-size: 1rem;
+      font-size: 12px;
+      height: 38px;
+      padding-left: 3px;
+      font-weight: bold;
+      border: unset;
+    }
+
+    .decrease,
+    .increase {
+      border-radius: 5px !important;
+      width: 35px;
+      border-color: rgb(217 217 217);
+      font-weight: bold;
+      height: 31px;
+      line-height: 1;
+      /* padding: 4px; */
+    }
+
+    .cus-row {
+      justify-content: space-evenly;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .cus-row>div:first-child {
+      padding: 0 10px;
+      height: 40px;
+      align-content: center;
+      text-align: start;
+      border: 1px solid #0d6efd40;
+    }
+
+    .cus-row>div:nth-child(2) {
+      border: 1px solid #0d6efd40;
+      height: 40px;
+      align-content: center;
+      text-align: center;
+      padding: 0 4px;
+      border-radius: 5px;
+    }
+
+    .name-card {
+      max-height: 85px;
+    }
+
+    input[name="new_slot"] {
+      width: 100% !important;
+      border-color: #cccccc;
+    }
+
+    .input-container-name {
+      display: flex;
+      align-items: center;
+      /* Center items vertically */
+    }
+
+    .form-control-name {
+      margin-right: 10px;
+      /* Space between input and buttons */
+    }
+
+    .active-dot {
+      color: green;
+      font-size: 30px;
+    }
+
+    .inactive-dot {
+      color: red;
+      font-size: 30px;
+    }
+
+    .bi-dot::before {
+      margin: -8px;
+    }
+
+    @media (max-width: 768px) {
+      .schedule-cards {
+        margin-left: 7px;
+      }
+    }
+
+    /* @media (max-height: 800.9px) {
+      .schedule-container {
+        max-height: 72vh;
+      }
+    } */
+
+    @media (min-width: 992px) {
+      .cus-row div {
+        padding: unset;
+      }
+
+      .cus-row div:nth-child(3) {
+        padding-left: 5px;
+      }
+    }
+
+    .is-invalid {
+      padding-right: unset !important;
+    }
+    .form-control:disabled{
+      background-color: unset !important;
+    }
+  

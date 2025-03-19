@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Auto-Reconnect</title>
+    <style>
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .connected { background-color: #dff0d8; color: #3c763d; }
+        .disconnected { background-color: #f2dede; color: #a94442; }
+        .connecting { background-color: #fcf8e3; color: #8a6d3b; }
+        #messageLog {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebSocket with Auto-Reconnect</h1>
+    <div id="status" class="status disconnected">Disconnected</div>
+    <div id="messageLog"></div>
+    <button onclick="sendTestMessage()">Send Test Message</button>
+
+    <script>
+        class WebSocketClient {
+            constructor(url, options = {}) {
+                this.url = url;
+                this.options = {
+                    reconnectInterval: options.reconnectInterval || 5000,
+                    maxReconnectAttempts: options.maxReconnectAttempts || Infinity,
+                    debug: options.debug || false
+                };
+                this.reconnectAttempts = 0;
+                this.reconnectTimer = null;
+                this.socket = null;
+                this.connect();
+            }
+
+            connect() {
+                this.log('Attempting to connect...');
+                updateStatus('connecting');
+                
+                this.socket = new WebSocket(this.url);
+
+                this.socket.onopen = () => {
+                    this.log('Connected to WebSocket server');
+                    updateStatus('connected');
+                    this.reconnectAttempts = 0;
+                };
+
+                this.socket.onmessage = (event) => {
+                    this.log(`Received: ${event.data}`);
+                    try {
+                        const data = JSON.parse(event.data);
+						console.log(data)
+                        this.handleMessage(data);
+                    } catch (e) {
+                        this.log('Error parsing message: ' + e.message);
+                    }
+                };
+
+                this.socket.onerror = (error) => {
+                    this.log('WebSocket error: ' + error.message);
+                };
+
+                this.socket.onclose = () => {
+                    updateStatus('disconnected');
+                    this.log('Connection closed');
+                    this.scheduleReconnect();
+                };
+            }
+
+            scheduleReconnect() {
+                if (this.reconnectTimer) {
+                    clearTimeout(this.reconnectTimer);
+                }
+
+                if (this.reconnectAttempts < this.options.maxReconnectAttempts) {
+                    this.reconnectAttempts++;
+                    const delay = this.options.reconnectInterval;
+                    this.log(`Scheduling reconnect in ${delay}ms (attempt ${this.reconnectAttempts})`);
+                    this.reconnectTimer = setTimeout(() => this.connect(), delay);
+                } else {
+                    this.log('Max reconnection attempts reached');
+                }
+            }
+
+            send(data) {
+                if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+                    const message = typeof data === 'string' ? data : JSON.stringify(data);
+                    this.socket.send(message);
+                    this.log(`Sent: ${message}`);
+                } else {
+                    this.log('Cannot send message - connection not open');
+                }
+            }
+
+            handleMessage(data) {
+                // Handle different message types
+                if (data.type === 'msg') {
+                    this.log(`Server message: ${data.data}`);
+                }
+            }
+
+            log(message) {
+                if (this.options.debug) {
+                    console.log(`[WebSocket] ${message}`);
+                }
+                logMessage(message);
+            }
+        }
+
+        // UI helper functions
+        function updateStatus(status) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = 'status ' + status;
+            statusDiv.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+        }
+
+        function logMessage(message) {
+            const messageLog = document.getElementById('messageLog');
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${new Date().toLocaleTimeString()} - ${message}`;
+            messageLog.appendChild(messageElement);
+            messageLog.scrollTop = messageLog.scrollHeight;
+        }
+
+        // Initialize WebSocket connection
+        const wsClient = new WebSocketClient('ws://localhost:55777', {
+            reconnectInterval: 5000,
+            maxReconnectAttempts: Infinity,
+            debug: true
+        });
+
+        function sendTestMessage() {
+            wsClient.send(JSON.stringify({
+                type: 'test',
+                data: 'Hello server!'
+            }));
+        }
+    </script>
+</body>
+</html>

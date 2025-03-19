@@ -1,0 +1,414 @@
+.video-player {
+  height: 70vh;
+  /* Set videos player height to 60% of viewport height */
+}
+
+.schedule-container {
+  background: white;
+  /* border-radius: 5px; */
+  /* border: 1px solid #ccc; */
+  height: 70vh;
+  /* Set schedule container height to 60% of viewport height */
+  overflow-y: auto;
+  /* Enable scrolling if content exceeds height */
+  padding-top: 20px;
+}
+
+.schedule-cards {
+  display: flex;
+  gap: 20px;
+  /* Adds space between name cards */
+  flex-wrap: wrap;
+  /* Ensure cards wrap to next row if too wide */
+}
+
+.schedule-row {
+  margin-bottom: 20px;
+  /* Space between schedule rows */
+}
+
+.time-slot {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.name-card {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-align: center;
+  position: relative;
+  min-width: 80px;
+  margin: 10px 10px;
+  max-height: 85px;
+}
+
+.name {
+  font-weight: bold;
+  /* Bold font for names */
+  font-size: 12px;
+  /* Font size for names */
+}
+
+.time {
+  font-size: 12px;
+  /* Font size for times */
+  margin-top: 5px;
+  /* Space between name and time */
+}
+
+/* Style for check mark */
+.check-mark {
+  font-size: 12px;
+  /* Size of check mark */
+  top: -20px;
+  /* Adjusted for better positioning */
+  left: 0px;
+  /* Adjusted for better positioning */
+  color: green;
+  /* Color for check mark */
+}
+
+.ongoing {
+  background-color: #25BB4F;
+  color: white;
+  border: 1px solid #25BB4F;
+}
+
+.next {
+  background-color: #0166FF;
+  color: white;
+  border: 1px solid #0166FF;
+}
+
+.ongoing span {
+  color: #25BB4F;
+}
+
+.next span {
+  color: #0166FF;
+}
+
+/* General Scrollbar - Vertical and Horizontal */
+::-webkit-scrollbar {
+  width: 5px;
+  /* Vertical scrollbar width */
+  height: 5px;
+  /* Horizontal scrollbar height */
+}
+
+/* Vertical Scrollbar Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+}
+
+/* Vertical Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+/* Vertical Scrollbar Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+/* Horizontal Scrollbar */
+::-webkit-scrollbar-horizontal {
+  height: 5px;
+  /* Horizontal scrollbar height */
+}
+
+/* Horizontal Scrollbar Track */
+::-webkit-scrollbar-track:horizontal {
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+}
+
+/* Horizontal Scrollbar Handle */
+::-webkit-scrollbar-thumb:horizontal {
+  background: black;
+  border-radius: 10px;
+}
+
+/* Horizontal Scrollbar Handle on Hover */
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: black;
+}
+
+#dropdownMenuButton {
+  background: black;
+  border: 1px solid black;
+  padding: 10px 50px;
+  border-radius: 0px;
+  color: white;
+
+}
+
+/* Styling the dropdown menu */
+.dropdown-menu {
+  margin-top: 0;
+  /* Remove top margin */
+  background-color: black;
+  /* Set background color of the dropdown menu */
+  width: 100%;
+  /* Make the dropdown menu width equal to the button */
+  border-radius: 0px;
+  /* Remove border-radius */
+  transform: translate(0px 35px) !important;
+}
+
+/* Styling the dropdown menu items */
+.dropdown-item {
+  color: white;
+  /* Set text color to white */
+}
+
+/* Styling dropdown items on hover */
+.dropdown-item:hover {
+  background-color: #333;
+  /* Slightly lighter black on hover */
+  color: white;
+  /* Keep text color white on hover */
+}
+
+.form-control {
+  font-size: 12px;
+  /* Change to your desired font size */
+}
+
+.form-select {
+  font-size: 12px;
+  /* Change to your desired font size */
+}
+
+.photo-input {
+  padding: 20px 12px 0 12px;
+}
+
+.photo-input button {
+  border-radius: 10px;
+}
+
+.photo-input .bi-folder-fill {
+  font-size: 25px;
+  padding: 10px;
+}
+
+#loadFile {
+  display: none;
+}
+
+#fileDetails {
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 7px;
+  height: 50px;
+  width: 95%;
+  border: none;
+}
+
+.camera-list {
+  width: 100%;
+  border-collapse: separate;
+  /* This enables spacing between rows */
+  border-spacing: 0 15px;
+  /* Adds vertical space (15px) between rows */
+  font-size: 14px;
+}
+
+.camera-list td,
+.camera-list th {
+  padding: 10px;
+  text-align: left;
+}
+
+.round-button {
+  width: 18px;
+  /* Width and height should be equal to make a perfect circle */
+  height: 18px;
+  border-radius: 50%;
+  /* This makes the button round */
+  background-color: lightgreen;
+  /* Choose your preferred background color */
+  border: none;
+  /* No border */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  display: inline-block;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.slot-header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+
+}
+
+.slot-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+
+.camera-list {
+  list-style-type: none;
+  margin-bottom: 0;
+  /* padding: 20px; */
+}
+
+.camera-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.camera-list li .delete-button {
+  background-color: transparent;
+  border: none;
+  color: red;
+  font-size: 18px;
+}
+
+.info-button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  font-size: 18px;
+}
+
+.arrow-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.arrow-button {
+  background-color: white;
+  border: none;
+  font-size: 24px;
+}
+
+.add-slot-close-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  /* Aligns the buttons to the right */
+  align-items: center;
+  width: 100%;
+  /* Take up full width */
+}
+
+.add-slot {
+  margin-right: 10px;
+}
+
+.add-slot-input-wrapper {
+  display: none;
+  /* Initially hidden */
+}
+
+.add-slot-input-wrapper input {
+  margin-right: 10px;
+}
+
+.last-row {
+  display: block;
+  color: white;
+  font-size: 18px;
+  background: black;
+  padding: 5px 15px 15px 15px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.last-container {
+  padding: 20px 30px;
+}
+
+/* .second-container {
+  padding: 20px 30px;
+} */
+
+.first-container {
+  padding: 20px 30px;
+}
+
+.full-width {
+  width: 100%;
+  /* Ensure full width */
+  padding: 0;
+  /* Remove any padding that might affect the layout */
+  margin: 0;
+  /* Remove any margin if applied */
+}
+
+.inner-header {
+  background-color: #000;
+}
+
+.inner-header-time {
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  width: 130px;
+}
+
+.input-group .btn {
+  height: 100%;
+  z-index: 1;
+}
+
+.quantity-input {
+  text-align: center;
+  padding-right: 0px;
+}
+
+.quantity {
+  font-size: 1rem;
+  font-size: 12px;
+  height: 38px;
+}
+
+.decrease,
+.increase {
+  border-radius: unset;
+  width: 35px;
+  border-color: rgb(217 217 217);
+}
+
+.cus-row {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+@media (max-width: 600px) {}
+
+@media (min-width: 992px) {
+  .cus-row div {
+    padding: unset;
+  }
+
+  .cus-row div:nth-child(3) {
+    padding-left: 5px;
+  }
+}

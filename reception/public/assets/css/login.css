@@ -1,0 +1,67 @@
+ .login-container {
+            height: 100vh;
+            display: flex;
+        }
+
+
+
+        .form-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-form {
+            width: 80%;
+            max-width: 500px;
+            padding: 30px;
+        }
+
+        .login-form img {
+            max-width: 110px;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .letter-sapce {
+            letter-spacing: .8px;
+        }
+
+        .login-btn {
+            width: 100%;
+            font-size: 16px;
+            background: black;
+            color: white;
+            border: none;
+        }
+
+        .form-login-custom {
+            padding: 25px;
+            border: 1px solid #c5c0c0;
+            border-radius: 10px;
+        }
+
+        label {
+            color: black;
+        }
+
+        .p-heading {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .light {
+            font-size: 14px;
+            color: #626060;
+        }
+
+        .light-bold {
+            font-size: 14px;
+            font-weight: bold;
+            color: black;
+        }
